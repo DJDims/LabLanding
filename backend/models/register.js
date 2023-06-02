@@ -9,12 +9,35 @@ Register.init(
 			autoIncrement: true,
 			primaryKey: true,
 		},
-		firstname: { type: DataTypes.STRING },
-		lastname: { type: DataTypes.STRING },
-		birthday: {type: DataTypes.DATEONLY},
-		email: { type: DataTypes.STRING, unique: true },
-		phone: { type: DataTypes.STRING, unique: true },
-		education: {type: DataTypes.ENUM('Basic', 'Secondary', 'Higher')}
+		firstname: { 
+			type: DataTypes.STRING,
+			allowNull: false
+		 },
+		lastname: { 
+			type: DataTypes.STRING,
+			allowNull: false
+		 },
+		birthday: {
+			type: DataTypes.DATEONLY,
+			allowNull: false
+		 },
+		email: { 
+			type: DataTypes.STRING, 
+			unique: true,
+			allowNull: false,
+			validate: {
+				isEmail: true
+			}
+		 },
+		phone: { 
+			type: DataTypes.STRING, 
+			unique: true,
+			allowNull: false
+		 },
+		education: {
+			type: DataTypes.ENUM('Basic', 'Secondary', 'Higher'),
+			allowNull: false
+		}
 	},
 	{
 		sequelize: db,

@@ -1,17 +1,29 @@
 import React from 'react'
-import { Container } from 'react-bootstrap'
+import { Col, Container, Row } from 'react-bootstrap'
 
 export default function Footer() {
-  return (
-    <footer className="footer mt-auto pt-3">
-        <Container className="text-center mt-1 px-2 py-2" fluid style={{
-            backgroundColor: "#198754",
-            color:"#fff",
-            height: '60px',
-            position: 'relative'
-            }}>
-            <p>Design &copy; 2023 Kreivald Dmitrii | Node Express | Frontend React | Project School</p>
-        </Container>
-    </footer>
-  )
+	return (
+		<div className="footer container-fluid mt-5">
+			<Row>
+				<Col className='col-2 offset-3'>
+					<h5><span>К</span>онтакты</h5>
+					<p className='kontakt'>Почта: info@ivkhk.ee</p>
+					<p className='kontakt'>Телефон: +3723320381</p>
+				</Col>
+				<Col className='col-3 offset-1'>
+					<h5>Инфо<span>P</span>мация о поступле<span>Ni</span>и</h5>
+					<p>по рабочим дням с 9:00 до 15:00</p>
+					<p className='kontakt'>Почта: galina.trofimova@ivkhk.ee</p>
+					<p className='kontakt'>Телефон: +3725283670</p>
+				</Col>
+				<div className='mt-3 mb-1 mx-auto col-5 d-flex justify-content-between'>
+					<a href='https://kutsehariduskeskus.ee/ru'>Официальный сайт</a>
+					<a href='https://www.youtube.com/channel/UC6TPd9ePy3n-vFQRgtbhx-w'>Youtube</a>
+					<a href='https://vk.com/ivkhk'>VKontakte</a>
+					<a href='https://www.facebook.com/IVKHK'>Facebook</a>
+					<a href='https://www.instagram.com/idavirumaa_kutsehariduskeskus/'>Instargramm</a>
+				</div>
+			</Row>
+		</div>
+	)
 }

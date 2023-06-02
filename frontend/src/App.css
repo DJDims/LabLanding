@@ -36,3 +36,77 @@
     transform: rotate(360deg);
   }
 }
+
+/* --------------------- Custom styles --------------------- */
+
+body {
+  background-color: #365E3B !important;
+}
+
+.navbar {
+  border-radius: 0 0 20px 20px;
+}
+
+.card {
+  border-radius: 20px !important;
+}
+
+span {
+  color: #00950F;
+  font-weight: bold;
+}
+
+.banner .card-title {
+  font-size: 6vmax !important;
+}
+
+.banner img {
+  width: 100px;
+  position: absolute;
+}
+
+.banner img {
+  width: 100px;
+}
+
+.atom {
+  rotate: -28deg;
+}
+
+.kolba1 {
+  rotate: -15deg;
+}
+
+.kolba2 {
+  rotate: 26deg;
+}
+
+.microskop {
+  rotate: 24deg;
+}
+
+.footer {
+  background-color: black;
+}
+
+.footer h5 {
+  color: white;
+  margin-bottom: 24px;
+  font-weight: bold;
+}
+
+.footer p {
+  color: white;
+  margin-top: -24px;
+  margin-bottom: 0px;
+}
+
+.footer .kontakt {
+  margin-left: 25px;
+  margin-top: 0px;
+}
+
+.footer a {
+  color: white;
+  text-decoration: none;
+}

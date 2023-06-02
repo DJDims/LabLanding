@@ -2,43 +2,22 @@ import Users from '../models/user.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
-export const Register = async (req, res) => {
-	const { name, email, password, confirmPassword } = req.body;
-	if (password !== confirmPassword)
-		return res.status(400).json({
-			msg: 'Password and Confirm Password do not match'
-		});
-	const salt = await bcrypt.genSalt();
-	const hashPassword = await bcrypt.hash(password, salt);
-	try {
-		await Users.create({
-			name: name,
-			email: email,
-			password: hashPassword,
-		});
-		res.json({ msg: 'Registration Successful' });
-	} catch (error) {
-		console.log(error);
-	}
-};
-
 export const Login = async (req, res) => {
 	try {
-		const user = await Users.findAll({
+		const user = await Users.findOne({
 			where: {
-				email: req.body.email,
+				name: req.body.username,
 			},
 		});
-		const match = await bcrypt.compare(req.body.password, user[0].password);
+		const match = await bcrypt.compare(req.body.password, user.password);
 		if (!match) return res.status(400).json({ msg: 'Wrong Password' });
-		const userId = user[0].id;
-		const name = user[0].name;
-		const email = user[0].email;
-		const accessToken = jwt.sign({ userId, name, email },
+		const userId = user.id;
+		const name = user.name;
+		const accessToken = jwt.sign({ userId, name },
 			process.env.ACCESS_TOKEN_SECRET, {
 			expiresIn: '15s',
 		});
-		const refreshToken = jwt.sign({ userId, name, email },
+		const refreshToken = jwt.sign({ userId, name },
 			process.env.REFRESH_TOKEN_SECRET, {
 			expiresIn: '1d',
 		});
@@ -56,20 +35,20 @@ export const Login = async (req, res) => {
 		});
 		res.json({ accessToken });
 	} catch (error) {
-		res.status(404).json({ msg: 'Email not found' });
+		res.status(404).json({ msg: 'Username not found' });
 	}
 };
 
 export const Logout = async (req, res) => {
 	const refreshToken = req.cookies.refreshToken;
 	if (!refreshToken) return res.sendStatus(204);
-	const user = await Users.findAll({
+	const user = await Users.findOne({
 		where: {
 			refresh_token: refreshToken,
 		},
 	});
-	if (!user[0]) return res.sendStatus(204);
-	const userId = user[0].id;
+	if (!user) return res.sendStatus(204);
+	const userId = user.id;
 	await Users.update(
 		{ refresh_token: null },
 		{

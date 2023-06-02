@@ -1,16 +1,15 @@
 import './App.css';
-import Header from './components/header';
-import Footer from './components/footer';
-import Main from './pages/main';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Header from './components/Header';
+import Content from './components/Content';
 
 function App() {
-  return (
-    <>
-      <Header />
-      <Main />
-      <Footer />
-    </>
-  );
+	return (
+		<>
+			<Header />
+			<Content />
+		</>
+	);
 }
 
 export default App;

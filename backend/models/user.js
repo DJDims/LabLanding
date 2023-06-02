@@ -9,11 +9,26 @@ User.init(
 			autoIncrement: true,
 			primaryKey: true,
 		},
-		name: { type: DataTypes.STRING },
-		email: { type: DataTypes.STRING },
-		password: { type: DataTypes.STRING },
-		role: { type: DataTypes.STRING },
-		refresh_token: { type: DataTypes.TEXT },
+		name: { 
+			type: DataTypes.STRING,
+			allowNull: false,
+			unique: true
+		},
+		email: { 
+			type: DataTypes.STRING,
+			allowNull: false,
+			unique: true,
+			validate: {
+				isEmail: true
+			}
+		},
+		password: { 
+			type: DataTypes.STRING,
+			allowNull: false
+		},
+		refresh_token: { 
+			type: DataTypes.TEXT,
+		},
 	},
 	{
 		sequelize: db,
