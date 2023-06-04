@@ -4,6 +4,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import Accordion from 'react-bootstrap/Accordion';
 import Form from 'react-bootstrap/Form';
 import axios from 'axios';
+import parse from 'html-react-parser'
 import Footer from '../components/Footer';
 
 import slide1 from '../assets/slide1.png';
@@ -15,6 +16,10 @@ import atom from '../assets/atom.png';
 import kolba1 from '../assets/kolba1.png';
 import kolba2 from '../assets/kolba2.png';
 import microskop from '../assets/microskop.png';
+
+import formulas from '../data/formulas.json'
+
+
 
 export default function Main() {
 	const [firstname, setFirstname] = useState('');
@@ -55,6 +60,22 @@ export default function Main() {
 
 	return (
 		<>
+			{/* {formulas.map((e) => (
+					<>
+						<p className='formula' style={{top: e.top, left: e.left}}>{parse(e.formula)}</p>
+					</>
+				))}
+			{formulas.map((e) => (
+				<>
+					<p className='formula' style={{top: e.top+1112, left: e.left}}>{parse(e.formula)}</p>
+				</>
+			))}
+			{formulas.map((e) => (
+				<>
+					<p className='formula' style={{top: e.top+2244, left: e.left}}>{parse(e.formula)}</p>
+				</>
+			))} */}
+			
 			<main className='col-11 col-sm-10 col-md-9 col-lg-8 mx-auto'>
 				<Card className='mt-4'>
 					<Card.Body className='banner'>
@@ -80,11 +101,11 @@ export default function Main() {
 					<Card.Body>
 						<Card.Text>Основная задача лаборанта – определять химический состав и качество различных видов сырья, материалов, готовой продукции, параметров окружающей среды. Он может анализировать пробы воды и грунта, качество пищевых продуктов и напитков. Проводя мониторинг параметров окружающей среды по результатам анализов шума, загрязнения воздуха и чистоты воды, лаборант может способствовать решению экологических проблем.</Card.Text>
 						<Card.Text>Работа лаборанта требует:</Card.Text>
-						<ul class="list-group">
-							<li class="list-group-item">аккуратности</li>
-							<li class="list-group-item">корректности</li>
-							<li class="list-group-item">умения работать в команде</li>
-							<li class="list-group-item">чувства ответственности</li>
+						<ul className="list-group">
+							<li className="list-group-item">аккуратности</li>
+							<li className="list-group-item">корректности</li>
+							<li className="list-group-item">умения работать в команде</li>
+							<li className="list-group-item">чувства ответственности</li>
 						</ul>
 						<div className='row justify-content-center'>
 							<Button variant="primary" className='col-4 col-xxl-2 mx-auto mt-3' onClick={registrationClick}>Регистрация</Button>
@@ -96,10 +117,10 @@ export default function Main() {
 						<Card.Title><span>Na</span>выки</Card.Title>
 					</Card.Header>
 					<Card.Body>
-						<ul class="list-group">
-							<li class="list-group-item">изучает основы работы в химической лаборатории (профессиональная терминология, общепринятые нормы и правила лабораторной работы, оборудование лаборатории, химические реактивы и посуда, принципы работы аппаратуры и измерительных приборов)</li>
-							<li class="list-group-item">на основании методики выполняет различные химические анализы, регистрирует показания приборов и оборудования</li>
-							<li class="list-group-item">заполняет лабораторную документацию ( маркировка и регистрация проб, составление протокола анализа), рассчитывает и обрабатывает результаты анализа</li>
+						<ul className="list-group">
+							<li className="list-group-item">изучает основы работы в химической лаборатории (профессиональная терминология, общепринятые нормы и правила лабораторной работы, оборудование лаборатории, химические реактивы и посуда, принципы работы аппаратуры и измерительных приборов)</li>
+							<li className="list-group-item">на основании методики выполняет различные химические анализы, регистрирует показания приборов и оборудования</li>
+							<li className="list-group-item">заполняет лабораторную документацию ( маркировка и регистрация проб, составление протокола анализа), рассчитывает и обрабатывает результаты анализа</li>
 						</ul>
 						<div className='row justify-content-center'>
 							<Button variant="primary" className='col-4 col-xxl-2 mx-auto mt-3' onClick={registrationClick}>Регистрация</Button>

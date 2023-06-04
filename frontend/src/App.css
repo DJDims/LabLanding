@@ -110,3 +110,13 @@ span {
   color: white;
   text-decoration: none;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+
+.formula {
+  position: absolute;
+  color: #FFFFFF;
+  font-family: abel;
+  font-size: xx-large;
+  z-index: 0;
+}

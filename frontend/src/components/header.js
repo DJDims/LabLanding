@@ -48,12 +48,12 @@ export default function Header() {
 				<Navbar.Brand href="/"><img src='../assets/LogoIVKHK.png' />Kutsehariduskeskus</Navbar.Brand>
 				<NavbarToggle aria-controls='responsive-navbar-nav' />
 				<NavbarCollapse id='responsive-navbar-nav'>
-					<Nav className='me-auto'>
+					<Nav className='me-auto align-items-center'>
 						<Nav.Link onClick={scrollToTop}>Home</Nav.Link>
 						
 						<Nav.Link>О профессии</Nav.Link>
 						<Nav.Link>Навыки</Nav.Link>
-						<Nav.Link>Условия поступления</Nav.Link>
+						<Nav.Link className='text-center'>Условия поступления</Nav.Link>
 						<Nav.Link>Галерея</Nav.Link>
 						<Nav.Link>Возможности</Nav.Link>
 						<Nav.Link>Регистрация</Nav.Link>

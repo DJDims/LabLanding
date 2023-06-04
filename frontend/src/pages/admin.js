@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {Card, Col, Row, Form} from 'react-bootstrap';
 import Table from 'react-bootstrap/Table';
+import Accordion from 'react-bootstrap/Accordion';
 import axios from 'axios';
 
 export default function Admin() {
@@ -18,7 +19,7 @@ export default function Admin() {
 	
 	return (
 		<main className='col-10 mx-auto'>
-			<Card className='mt-4'>
+			<Card className='mt-4 d-none d-lg-block'>
 				<Card.Header>
 					<Card.Title>Поданные заявки<span></span></Card.Title>
 				</Card.Header>
@@ -68,12 +69,28 @@ export default function Admin() {
 								</tr>
 							))
 						}
-						
 					</tbody>
 				</Table>
 
 				</Card.Body>
 			</Card>
+			<Accordion defaultActiveKey="0" className='mt-4 d-block d-lg-none'>
+				{
+					registers.map((register, index) => (
+						<Accordion.Item eventKey={index}>
+							<Accordion.Header>{register.firstname} {register.lastname}</Accordion.Header>
+							<Accordion.Body>
+								<p>Имя: {register.firstname}</p>
+								<p>Фамилия: {register.lastname}</p>
+								<p>Дата рождения: {register.birthday}</p>
+								<p>Почта: {register.email}</p>
+								<p>Телефон: {register.phone}</p>
+								<p>Образование: {register.education}</p>
+							</Accordion.Body>
+						</Accordion.Item>
+					))
+				}
+			</Accordion>
 		</main>
 	);
 }

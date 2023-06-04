@@ -1,0 +1,47 @@
+[
+    {
+        "formula": "C<sub>11</sub>H<sub>15</sub>NO<sub>2</sub>",
+        "top":60,
+        "left":20
+    },
+    {
+        "formula": "C<sub>21</sub>H<sub>30</sub>O<sub>2</sub>",
+        "top":118,
+        "left":1717
+    },
+    {
+        "formula": "C<sub>17</sub>H<sub>21</sub>NO<sub>4</sub>",
+        "top":343,
+        "left":142
+    },
+    {
+        "formula": "C<sub>21</sub>H<sub>23</sub>NO<sub>5</sub>",
+        "top":638,
+        "left":30
+    },
+    {
+        "formula": "C<sub>2</sub>H<sub>5</sub>OH",
+        "top":847,
+        "left":180
+    },
+    {
+        "formula": "C<sub>17</sub>H<sub>19</sub>NO<sub>3</sub>",
+        "top":385,
+        "left":1609
+    },
+    {
+        "formula": "C<sub>10</sub>H<sub>15</sub>N",
+        "top":574,
+        "left":1777
+    },
+    {
+        "formula": "C<sub>20</sub>H<sub>25</sub>N<sub>3</sub>O",
+        "top":763,
+        "left":1627
+    },
+    {
+        "formula": "C<sub>10</sub>H<sub>14</sub>N<sub>2</sub>",
+        "top":995,
+        "left":1761
+    }
+]
