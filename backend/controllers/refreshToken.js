@@ -3,11 +3,11 @@ import jwt from 'jsonwebtoken';
 
 export const refreshToken = async (req, res) => {
 	try {
-		const refreshToken = req.cookies.refreshToken;
-		if (!refreshToken) return res.sendStatus(401);
+		if (!req.cookies.refreshToken) return res.sendStatus(401);
+		console.log(req.cookies.refreshToken);
 		const user = await Users.findOne({
 			where: {
-				refresh_token: refreshToken,
+				refresh_token: req.cookies.refreshToken,
 			}
 		});
 		if (!user) return res.sendStatus(403);

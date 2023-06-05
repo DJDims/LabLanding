@@ -17,7 +17,7 @@ db.sync({force: true}).then(async () => {
 	const hashPassword = await bcrypt.hash("12345", salt);
     await User.create({
         id: 1,
-        name: "Admin",
+        name: "admin",
         email: "admin@ee.ee",
         password: hashPassword
     });

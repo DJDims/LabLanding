@@ -20,6 +20,7 @@ export default function Header() {
 			const response = await axios.get(`http://localhost:5000/user/token`);
 			const decoded = jwt_decode(response.data.accessToken);
 			setName(decoded.name);
+			console.log(decoded.name)
 		} catch (error) {
 			if (error.response) {
 
@@ -31,7 +32,7 @@ export default function Header() {
 		window.scrollTo({ top: 0, behavior: 'smooth' })
 	};
 
-	if (name === 'Admin') {
+	if (name === 'admin') {
 		navbar_admin = [
 			{name: 'Заявки', href: '/registers'},
 			{name: 'Выход', href: '/logout'}

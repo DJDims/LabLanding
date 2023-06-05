@@ -5,7 +5,7 @@ import Accordion from 'react-bootstrap/Accordion';
 import Form from 'react-bootstrap/Form';
 import axios from 'axios';
 import parse from 'html-react-parser'
-import Footer from '../components/Footer';
+import Footer from '../components/Footer.js';
 
 import slide1 from '../assets/slide1.png';
 import slide2 from '../assets/slide2.png';
@@ -60,7 +60,7 @@ export default function Main() {
 
 	return (
 		<>
-			{/* {formulas.map((e) => (
+			{formulas.map((e) => (
 					<>
 						<p className='formula' style={{top: e.top, left: e.left}}>{parse(e.formula)}</p>
 					</>
@@ -74,7 +74,7 @@ export default function Main() {
 				<>
 					<p className='formula' style={{top: e.top+2244, left: e.left}}>{parse(e.formula)}</p>
 				</>
-			))} */}
+			))}
 			
 			<main className='col-11 col-sm-10 col-md-9 col-lg-8 mx-auto'>
 				<Card className='mt-4'>

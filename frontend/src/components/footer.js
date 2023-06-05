@@ -23,6 +23,12 @@ export default function Footer() {
 					<a href='https://www.facebook.com/IVKHK'>Facebook</a>
 					<a href='https://www.instagram.com/idavirumaa_kutsehariduskeskus/'>Instargramm</a>
 				</div>
+				<div className='mt-3 mb-1 mx-auto col-12 col-md-8 col-xl-5 d-flex justify-content-between'>
+					<p>Dmitrii Kreivald</p>
+					<p>Julia Badanova</p>
+					<p>JPTV20</p>
+					<p>19.06.23</p>
+				</div>
 			</Row>
 		</div>
 	)
