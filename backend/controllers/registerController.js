@@ -9,15 +9,6 @@ export const findAllRegisters = async(req, res) => {
     }
 }
 
-export const findRegistersByEducation = async(req, res) => {
-    try {
-        const registers = await Register.findAll({where: {education: req.params.education}});
-        res.json(registers);
-    } catch(error) {
-        res.json({message: error.message});
-    }
-}
-
 export const createRegister = async(req, res) => {
     try {
         const register = await Register.create(req.body);

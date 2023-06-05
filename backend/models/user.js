@@ -26,9 +26,6 @@ User.init(
 			type: DataTypes.STRING,
 			allowNull: false
 		},
-		refresh_token: { 
-			type: DataTypes.TEXT,
-		},
 	},
 	{
 		sequelize: db,

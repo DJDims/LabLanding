@@ -40,6 +40,12 @@ export default function Main() {
 				phone: phone,
 				education: education
 			});
+			setFirstname('');
+			setLastname('');
+			setBirthday('');
+			setEmail('');
+			setPhone('');
+			setEducation('');
 		} catch (err) {
 			// if (err.response) {
 			// 	setMsg(err.response.data.msg);
@@ -181,11 +187,15 @@ export default function Main() {
 						</Accordion.Item>
 						<Accordion.Item eventKey="1">
 							<Accordion.Header>Парикмахерская</Accordion.Header>
-							<Accordion.Body>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</Accordion.Body>
+							<Accordion.Body>В парикмахерской учебного заведения Kutsehariduskeskus вы сможете воспользоваться услугами юных мастеров по очень выгодной цене.</Accordion.Body>
 						</Accordion.Item>
 						<Accordion.Item eventKey="2">
 							<Accordion.Header>Ателье</Accordion.Header>
-							<Accordion.Body>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</Accordion.Body>
+							<Accordion.Body>В ателье учебного заведения  вам на заказ смогут пошить одежду любого типа по благоприятной стоимости и качества.</Accordion.Body>
+						</Accordion.Item>
+						<Accordion.Item eventKey="3">
+							<Accordion.Header>Автомастерская</Accordion.Header>
+							<Accordion.Body>В автомастерской учебного заведения вам смогут сделать диагностику автомобиля, а так же ремонт вашего транспорта по выгодной цене.</Accordion.Body>
 						</Accordion.Item>
 					</Accordion>
 

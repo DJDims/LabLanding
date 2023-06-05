@@ -6,6 +6,7 @@ import NavbarToggle from 'react-bootstrap/esm/NavbarToggle';
 import Navbar from 'react-bootstrap/Navbar';
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
+import Cookies from 'js-cookie';
 
 export default function Header() {
 	const [name, setName] = React.useState();
@@ -18,12 +19,11 @@ export default function Header() {
 	const refreshToken = async () => {
 		try {
 			const response = await axios.get(`http://localhost:5000/user/token`);
-			const decoded = jwt_decode(response.data.accessToken);
+			const decoded = await jwt_decode(response.data.accessToken);
 			setName(decoded.name);
-			console.log(decoded.name)
 		} catch (error) {
 			if (error.response) {
-
+				console.log(error)
 			}
 		}
 	}

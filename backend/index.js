@@ -20,7 +20,7 @@ try {
     console.log('Connection error: ', error);
 }
 
-db.sync()
+//db.sync()
 
 app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
 app.use(cookieParser());

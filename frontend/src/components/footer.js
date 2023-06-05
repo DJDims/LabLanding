@@ -16,19 +16,23 @@ export default function Footer() {
 					<p className='kontakt'>Почта: galina.trofimova@ivkhk.ee</p>
 					<p className='kontakt'>Телефон: +3725283670</p>
 				</Col>
-				<div className='mt-3 mb-1 mx-auto col-12 col-md-8 col-xl-5 d-flex justify-content-between'>
-					<a href='https://kutsehariduskeskus.ee/ru'>Официальный сайт</a>
-					<a href='https://www.youtube.com/channel/UC6TPd9ePy3n-vFQRgtbhx-w'>Youtube</a>
-					<a href='https://vk.com/ivkhk'>VKontakte</a>
-					<a href='https://www.facebook.com/IVKHK'>Facebook</a>
-					<a href='https://www.instagram.com/idavirumaa_kutsehariduskeskus/'>Instargramm</a>
-				</div>
-				<div className='mt-3 mb-1 mx-auto col-12 col-md-8 col-xl-5 d-flex justify-content-between'>
-					<p>Dmitrii Kreivald</p>
-					<p>Julia Badanova</p>
-					<p>JPTV20</p>
-					<p>19.06.23</p>
-				</div>
+				<Col className='col-12'>
+					<div className='mt-3 mb-1 mx-auto col-12 col-md-8 col-xl-5 d-flex justify-content-between'>
+						<a href='https://kutsehariduskeskus.ee/ru'>Официальный сайт</a>
+						<a href='https://www.youtube.com/channel/UC6TPd9ePy3n-vFQRgtbhx-w'>Youtube</a>
+						<a href='https://vk.com/ivkhk'>VKontakte</a>
+						<a href='https://www.facebook.com/IVKHK'>Facebook</a>
+						<a href='https://www.instagram.com/idavirumaa_kutsehariduskeskus/'>Instargramm</a>
+					</div>
+				</Col>
+				<Col className='col-12 mt-3 mb-2'>
+					<div className='mt-3 mb-1 mx-auto col-12 col-md-8 col-xl-5 d-flex justify-content-between'>
+						<p>Dmitrii Kreivald</p>
+						<p>Julia Badanova</p>
+						<p>JPTV20</p>
+						<p>19.06.23</p>
+					</div>
+				</Col>
 			</Row>
 		</div>
 	)

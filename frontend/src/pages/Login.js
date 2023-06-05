@@ -25,7 +25,7 @@ export default function Login() {
 	}
 	
 	return (
-		<main className='col-12 col-sm-10 col-md-8 col-lg-6 mx-auto'>
+		<main className='col-12 col-sm-10 col-md-8 col-lg-6 col-xl-6 col-xxl-4 mx-auto'>
 			<Card className='mt-4'>
 				<Card.Header>
 					<Card.Title>Форма входа<span></span></Card.Title>
