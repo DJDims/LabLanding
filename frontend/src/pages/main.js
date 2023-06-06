@@ -21,7 +21,7 @@ import formulas from '../data/formulas.json'
 
 
 
-export default function Main() {
+export default function Main({refs}) {
 	const [firstname, setFirstname] = useState('');
 	const [lastname, setLastname] = useState('');
 	const [birthday, setBirthday] = useState('');
@@ -53,15 +53,9 @@ export default function Main() {
 		}
 	}
 
-	const aboutRef = useRef();
-	const skillsRef = useRef();
-	const requirementsRef = useRef();
-	const galleryRef = useRef();
-	const opportunitiesRef = useRef();
-	const registrationRef = useRef();
-	
-	function registrationClick() {
-		registrationRef.current.scrollIntoView({ behavior: 'smooth' });
+	const registrationClick = () => {
+		// console.log(refs);
+		refs[5].current.scrollIntoView({behavior: 'smooth'})
 	}
 
 	return (
@@ -100,7 +94,7 @@ export default function Main() {
 						</Row>
 					</Card.Body>
 				</Card>
-				<Card className='mt-4' ref={aboutRef}>
+				<Card className='mt-4' ref={refs[0]}>
 					<Card.Header>
 						<Card.Title>О про<span>Fe</span>ссии</Card.Title>
 					</Card.Header>
@@ -118,7 +112,7 @@ export default function Main() {
 						</div>
 					</Card.Body>
 				</Card>
-				<Card className='mt-4' ref={skillsRef}>
+				<Card className='mt-4' ref={refs[1]}>
 					<Card.Header>
 						<Card.Title><span>Na</span>выки</Card.Title>
 					</Card.Header>
@@ -133,7 +127,7 @@ export default function Main() {
 						</div>
 					</Card.Body>
 				</Card>
-				<Card className='mt-4' ref={requirementsRef}>
+				<Card className='mt-4' ref={refs[2]}>
 					<Card.Header>
 						<Card.Title>
 							<Card.Title>Усл<span>O</span>вия пост<span>U</span>пления</Card.Title>
@@ -150,7 +144,7 @@ export default function Main() {
 						</div>
 					</Card.Body>
 				</Card>
-				<Card className='mt-4' ref={galleryRef}>
+				<Card className='mt-4' ref={refs[3]}>
 					<Card.Header>
 						<Card.Title><span>Ga</span>лерея</Card.Title>
 					</Card.Header>
@@ -174,7 +168,7 @@ export default function Main() {
 						</div>
 					</Card.Body>
 				</Card>
-				<Card className='mt-4' ref={opportunitiesRef}>
+				<Card className='mt-4' ref={refs[4]}>
 					<Card.Header>
 						<Card.Title>Возможнос<span>Ti</span></Card.Title>
 					</Card.Header>
@@ -204,7 +198,7 @@ export default function Main() {
 						</div>
 					</Card.Body>
 				</Card>
-				<Card className='mt-4' ref={registrationRef}>
+				<Card className='mt-4' ref={refs[5]}>
 					<Card.Header>
 						<Card.Title>Регист<span>Ra</span>ция</Card.Title>
 					</Card.Header>
