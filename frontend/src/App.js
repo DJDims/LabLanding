@@ -14,40 +14,19 @@ function App() {
 
 	const refs = [ aboutRef, skillsRef, requirementsRef, galleryRef, opportunitiesRef, registrationRef ]
 
-	const aboutClick = () => {
-		aboutRef.current.scrollIntoView({behavior: 'smooth', block: 'center'});
-		
-	}
-	const skillsClick = () => {
-		skillsRef.current.scrollIntoView({behavior: 'smooth', block: 'center'});
-		
-	}
-	const requirementsClick = () => {
-		requirementsRef.current.scrollIntoView({behavior: 'smooth', block: 'center'});
-		
-	}
-	const galleryClick = () => {
-		galleryRef.current.scrollIntoView({behavior: 'smooth', block: 'center'});
-		
-	}
-	const opportunitiesClick = () => {
-		opportunitiesRef.current.scrollIntoView({behavior: 'smooth', block: 'center'});
-		
-	}
-	const registrationClick = () => {
-		registrationRef.current.scrollIntoView({behavior: 'smooth', block: 'center'});
-		
-	}
+	const aboutClick = () => { aboutRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+	const skillsClick = () => { skillsRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+	const requirementsClick = () => { requirementsRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+	const galleryClick = () => { galleryRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+	const opportunitiesClick = () => { opportunitiesRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+	const registrationClick = () => { registrationRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
 
 	const funcs = [ aboutClick, skillsClick, requirementsClick, galleryClick, opportunitiesClick, registrationClick ]
-	
-	console.log("lololo")
-	console.log(refs)
 
 	return (
 		<>
-			<Header funcs={funcs} />
-			<Content refs={refs} />
+			<Header funcs={ funcs } />
+			<Content refs={ refs } />
 		</>
 	);
 }

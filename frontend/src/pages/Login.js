@@ -10,6 +10,10 @@ export default function Login() {
 
 	const Login = async (e) => {
 		e.preventDefault();
+
+		checkInput("login_input", username);
+		checkInput("password_input", password);
+
 		try {
 			await axios.post(`http://localhost:5000/user/login`, {
 				username: username,
@@ -18,9 +22,19 @@ export default function Login() {
 			navigate('/admin');
 			window.location.reload();
 		} catch (err) {
-			// if (err.response) {
-			// 	setMsg(err.response.data.msg);
-			// }
+			if (err.response) {
+				console.log(err)
+			}
+		}
+	}
+
+	const checkInput = (inputId, value) => {
+		if (value == '') {
+			document.getElementById(inputId).classList.add('is-invalid');
+			return true;
+		} else {
+			document.getElementById(inputId).classList.remove('is-invalid');
+			return false;
 		}
 	}
 	
@@ -34,11 +48,11 @@ export default function Login() {
 					<Form onSubmit={Login}>
 						<Form.Group className="mb-3 col-10 col-sm-8 mx-auto" controlId="exampleForm.ControlInput1">
 							<Form.Label>Логин</Form.Label>
-							<Form.Control type="text" placeholder="Логин" value={username} onChange={(e) => setUsername(e.target.value)} />
+							<Form.Control type="text" id="login_input" placeholder="Логин" value={username} onChange={(e) => setUsername(e.target.value)} />
 						</Form.Group>
 						<Form.Group className="mb-3 col-10 col-sm-8 mx-auto" controlId="exampleForm.ControlInput1">
 							<Form.Label>Пароль</Form.Label>
-							<Form.Control type="password" placeholder="Пароль" value={password} onChange={(e) => setPassword(e.target.value)} />
+							<Form.Control type="password" id="password_input" placeholder="Пароль" value={password} onChange={(e) => setPassword(e.target.value)} />
 						</Form.Group>
 						<div className='row justify-content-center'>
 							<Button variant="primary" className='col-5 col-md-3 mx-auto mt-3' type="submit">Войти</Button>

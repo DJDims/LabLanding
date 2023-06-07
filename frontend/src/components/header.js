@@ -35,7 +35,7 @@ export default function Header({funcs}) {
 
 	if (name === 'admin') {
 		navbar_admin = [
-			{name: 'Заявки', href: '/registers'},
+			{name: 'Заявки', href: '/admin'},
 			{name: 'Выход', href: '/logout'}
 		];
 	} else {
