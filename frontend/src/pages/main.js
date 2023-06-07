@@ -4,7 +4,9 @@ import Carousel from 'react-bootstrap/Carousel';
 import Accordion from 'react-bootstrap/Accordion';
 import Form from 'react-bootstrap/Form';
 import axios from 'axios';
-import parse from 'html-react-parser'
+import parse from 'html-react-parser';
+import { useForm } from 'react-hook-form';
+
 import Footer from '../components/Footer.js';
 
 import slide1 from '../assets/slide1.png';
@@ -19,8 +21,6 @@ import microskop from '../assets/microskop.png';
 
 import formulas from '../data/formulas.json'
 
-
-
 export default function Main({refs}) {
 	const [firstname, setFirstname] = useState('');
 	const [lastname, setLastname] = useState('');
@@ -28,28 +28,18 @@ export default function Main({refs}) {
 	const [email, setEmail] = useState('');
 	const [phone, setPhone] = useState('');
 	const [education, setEducation] = useState('');
+
+	const {
+		register,
+		formState: {
+			errors,
+		},
+		handleSubmit,
+		reset,
+	} = useForm();
 	
-	const [flag, setFlag] = useState(false);
-	// let flag = false;
-	console.log("START" + flag);
-
-	const Register = async (e) => {
-		e.preventDefault();
-		// setFlag(false);
+	const Register = async (data) => {
 		try {
-			checkInput('firstname_input', firstname);
-			checkInput('lastname_input', lastname);
-			checkInput('birthday_input', birthday);
-			checkInput('email_input', email);
-			checkInput('phone_input', phone);
-			checkInput('education_select', education);
-
-			if (flag) {
-				console.log(flag);
-				// setFlag(false);
-				return;
-			}
-
 			await axios.post(`http://localhost:5000/register/`, {
 				firstname: firstname,
 				lastname: lastname,
@@ -63,7 +53,7 @@ export default function Main({refs}) {
 			setBirthday('');
 			setEmail('');
 			setPhone('');
-			setEducation('');
+			reset();
 		} catch (err) {
 			if (err.response) {
 				console.log(err);
@@ -71,11 +61,18 @@ export default function Main({refs}) {
 		}
 	}
 
+	const styleInvalidInputs = () => {
+			checkInput('firstname_input', firstname);
+			checkInput('lastname_input', lastname);
+			checkInput('birthday_input', birthday);
+			checkInput('email_input', email);
+			checkInput('phone_input', phone);
+			checkInput('education_select', education);
+	}
+
 	const checkInput = (inputId, value) => {
 		if (value === '') {
 			document.getElementById(inputId).classList.add('is-invalid');
-			setFlag(true);
-			console.log(value)
 		} else {
 			document.getElementById(inputId).classList.remove('is-invalid');
 		}
@@ -230,35 +227,35 @@ export default function Main({refs}) {
 						<Card.Title>Регист<span>Ra</span>ция</Card.Title>
 					</Card.Header>
 					<Card.Body>
-					<Form onSubmit={Register}>
+					<Form onSubmit={handleSubmit(Register, styleInvalidInputs)}>
 						<Row>
 							<Col className='col-6'>{/* col-4 offset-md-1 */}
 								<Form.Group className="mb-3" >
 									<Form.Label>Имя</Form.Label>
-									<Form.Control type="text" id='firstname_input' placeholder="Имя" value={firstname} onChange={(e) => setFirstname(e.target.value)}/>
+									<Form.Control type="text" id='firstname_input' placeholder="Имя" {...register('firstname', {required: true})} value={firstname} onChange={(e) => setFirstname(e.target.value)}/>
 								</Form.Group>
 								<Form.Group className="mb-3" >
 									<Form.Label>Фамилия</Form.Label>
-									<Form.Control type="text" id='lastname_input' placeholder="Фамилия" value={lastname} onChange={(e) => setLastname(e.target.value)} />
+									<Form.Control type="text" id='lastname_input' placeholder="Фамилия" {...register('lastname', {required: true})} value={lastname} onChange={(e) => setLastname(e.target.value)} />
 								</Form.Group>
 								<Form.Group className="mb-3" >
 									<Form.Label>Дата рождения</Form.Label>
-									<Form.Control type="date" id='birthday_input' placeholder="Дата рождения" value={birthday} onChange={(e) => setBirthday(e.target.value)} />
+									<Form.Control type="date" id='birthday_input' placeholder="Дата рождения" {...register('birthday', {required: true})} value={birthday} onChange={(e) => setBirthday(e.target.value)} />
 								</Form.Group>
 							</Col>
 							<Col className='col-6'>{/* col-4 offset-md-2 */}
 								<Form.Group className="mb-3" >
 									<Form.Label>Почта</Form.Label>
-									<Form.Control type="email" id='email_input' placeholder="Почта" value={email} onChange={(e) => setEmail(e.target.value)} />
+									<Form.Control type="email" id='email_input' placeholder="Почта" {...register('email', {required: true})} value={email} onChange={(e) => setEmail(e.target.value)} />
 								</Form.Group>
 								<Form.Group className="mb-3" >
 									<Form.Label>Телефон</Form.Label>
-									<Form.Control type="phone" id='phone_input' placeholder="Телефон" value={phone} onChange={(e) => setPhone(e.target.value)} />
+									<Form.Control type="phone" id='phone_input' placeholder="Телефон" {...register('phone', {required: true})} value={phone} onChange={(e) => setPhone(e.target.value)} />
 								</Form.Group>
 								<Form.Group className="mb-3" >
 									<Form.Label>Образование</Form.Label>
-									<Form.Select aria-label="Default select example" id='education_select' onChange={(e) => setEducation(e.target.value)}>
-										<option key={0}>Выберите</option>
+									<Form.Select aria-label="Default select example" id='education_select' {...register('education', {required: true})} onChange={(e) => setEducation(e.target.value)}>
+										<option key={0} value="">Выберите</option>
 										<option key={1} value="Basic">Основное</option>
 										<option key={2} value="Secondary">Среднее</option>
 										<option key={3} value="Higher">Высшее</option>
