@@ -2,17 +2,24 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import {Button, Card, Form} from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 
 export default function Login() {
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
 	const navigate = useNavigate();
 
-	const Login = async (e) => {
-		e.preventDefault();
+	const {
+		register,
+		formState: {
+			errors,
+		},
+		handleSubmit,
+	} = useForm();
 
-		checkInput("login_input", username);
-		checkInput("password_input", password);
+	const Login = async (e) => {
+		styleInvalidInputs("login_input", username);
+		styleInvalidInputs("password_input", password);
 
 		try {
 			await axios.post(`http://localhost:5000/user/login`, {
@@ -28,13 +35,11 @@ export default function Login() {
 		}
 	}
 
-	const checkInput = (inputId, value) => {
+	const styleInvalidInputs = (inputId, value) => {
 		if (value == '') {
 			document.getElementById(inputId).classList.add('is-invalid');
-			return true;
 		} else {
 			document.getElementById(inputId).classList.remove('is-invalid');
-			return false;
 		}
 	}
 	
@@ -45,7 +50,7 @@ export default function Login() {
 					<Card.Title>Форма входа<span></span></Card.Title>
 				</Card.Header>
 				<Card.Body>
-					<Form onSubmit={Login}>
+					<Form onSubmit={handleSubmit(Login, styleInvalidInputs)}>
 						<Form.Group className="mb-3 col-10 col-sm-8 mx-auto" controlId="exampleForm.ControlInput1">
 							<Form.Label>Логин</Form.Label>
 							<Form.Control type="text" id="login_input" placeholder="Логин" value={username} onChange={(e) => setUsername(e.target.value)} />

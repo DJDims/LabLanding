@@ -8,8 +8,11 @@ import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 import Cookies from 'js-cookie';
 
+import logo from '../assets/LogoIVKHK.png'
+
 export default function Header({funcs}) {
 	const [name, setName] = React.useState();
+	let menu = [];
 	let navbar_admin = [];
 
 	React.useEffect(() => {
@@ -32,6 +35,18 @@ export default function Header({funcs}) {
 		window.scrollTo({ top: 0, behavior: 'smooth' })
 	};
 
+	{if (window.location.href === 'http://localhost:3000/') {
+		menu = [
+			{onclick: scrollToTop, title: "Home"},
+			{onclick: funcs[0], title: "О профессии"},
+			{onclick: funcs[1], title: "Навыки"},
+			{onclick: funcs[2], title: "Условия поступления"},
+			{onclick: funcs[3], title: "Галерея"},
+			{onclick: funcs[4], title: "Возможности"},
+			{onclick: funcs[5], title: "Регистрация"},
+		];				
+	}}
+
 
 	if (name === 'admin') {
 		navbar_admin = [
@@ -47,18 +62,13 @@ export default function Header({funcs}) {
 	return (
 		<Navbar bg="light" expand="lg" sticky='top' collapseOnSelect>
 			<Container>
-				<Navbar.Brand href="/"><img src='../assets/LogoIVKHK.png' />Kutsehariduskeskus</Navbar.Brand>
+				<Navbar.Brand href="/"><img src={logo} height={56} />Kutsehariduskeskus</Navbar.Brand>
 				<NavbarToggle aria-controls='responsive-navbar-nav' />
 				<NavbarCollapse id='responsive-navbar-nav'>
 					<Nav className='me-auto align-items-center'>
-						<Nav.Link onClick={scrollToTop}>Home</Nav.Link>
-						
-						<Nav.Link href='' onClick={funcs[0]}>О профессии</Nav.Link>
-						<Nav.Link href='' onClick={funcs[1]}>Навыки</Nav.Link>
-						<Nav.Link href='' onClick={funcs[2]} className='text-center'>Условия поступления</Nav.Link>
-						<Nav.Link href='' onClick={funcs[3]}>Галерея</Nav.Link>
-						<Nav.Link href='' onClick={funcs[4]}>Возможности</Nav.Link>
-						<Nav.Link href='' onClick={funcs[5]}>Регистрация</Nav.Link>
+						{menu.map((value, i) => (
+							<Nav.Link href='' onClick={value.onclick}>{value.title}</Nav.Link>
+						))}
 					</Nav>
 					<Nav className='justify-content-end flex-grow-1 pe-3'>
 						{navbar_admin.map((value, i) => (
