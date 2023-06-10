@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
-import { Card, Button, Col, Row } from 'react-bootstrap';
-import Carousel from 'react-bootstrap/Carousel';
-import Accordion from 'react-bootstrap/Accordion';
-import Form from 'react-bootstrap/Form';
+import { Card, Button, Col, Row, Form, Accordion, Carousel } from 'react-bootstrap';
 import axios from 'axios';
 import parse from 'html-react-parser';
 import { useForm } from 'react-hook-form';
